@@ -7,6 +7,7 @@ import morgan from "morgan"; // Import morgan
 import connectDB from "./db/dbConnect.js";
 import { config } from "./config.js";
 import authRouter from "./routes/authRouter.js";
+import userRouter from "./routes/userRouter.js";
 const app = express();
 
 // middlewares
@@ -37,3 +38,5 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 app.get("/*name", (req, res) => { res.sendFile(path.join(__dirname, "../../frontend/dist/index.html")) });
 
 app.listen(config.PORT, () => console.log(`Server on PORT: ${config.PORT}`));
+
+app.use("/api/user", userRouter)
