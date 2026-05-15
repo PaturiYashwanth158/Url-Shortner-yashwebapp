@@ -7,9 +7,7 @@ export default function Response({ response }) {
     return null
   }
 
-  const shortUrl =
-    "https://url-shortener-bootcamp.onrender.com/api/s/" +
-    response?.shortCode
+  const shortUrl = import.meta.env.VITE_DEV_PROXY + "/api/s/" + response?.shortCode
 
   return (
     <div
